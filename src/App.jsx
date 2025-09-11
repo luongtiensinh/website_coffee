@@ -1,25 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <><div>
-       <a href='https://www.highlandscoffee.com.vn/vn/phindi-choco.html'> truy cap đường dẫn</a>
-    </div>
-      <div class="logo">
-        <h1 class="tieude">Giao dien de mo quan cafee </h1>
-        <img src="https://spencil.vn/wp-content/uploads/2024/06/mau-thiet-ke-logo-thuong-hieu-cafe-SPencil-Agency-6-1024x849.jpeg" alt="ảnh logo" />
-      </div>
-      <div class="buttons">
-        <button > <a href='https://www.highlandscoffee.com.vn/vn/phindi-choco.html'> truy cap tao nut bam</a></button>
-      
-      </div>
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Trang mặc định chuyển về login */}
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
