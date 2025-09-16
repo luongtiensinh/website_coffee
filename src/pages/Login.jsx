@@ -9,8 +9,19 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Đăng nhập:", { username, password });
-    // TODO: gọi API backend để xác thực
+
+    // TODO: gọi API kiểm tra tài khoản ở đây
+    if (username === "admin" && password === "123") {
+      navigate("/home");  // điều hướng sang Home
+    } else {
+      alert("Sai tài khoản hoặc mật khẩu!");
+    }
   };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Đăng nhập:", { username, password });
+  //   // TODO: gọi API backend để xác thực
+  // };
 
   return (
     <div className="login-container">

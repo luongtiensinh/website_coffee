@@ -1,0 +1,382 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #eff7fd;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #0e68b0;
+  padding: 5px 10px;
+  color: white;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-menu {
+  flex: 1;
+  display: flex;
+}
+
+.search-menu input {
+  flex-grow: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 2px 0 0 2px;
+  font-size: 14px;
+}
+
+.keyboard-btn {
+  background: #e1e1e1;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-mang-ve {
+  background-color: #0e68b0;
+  border: 1px solid white;
+  color: white;
+  padding: 7px 15px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.buttons-abc {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.btn-letter, .btn-edit {
+  background: white;
+  border-radius: 50%;
+  border: none;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  font-weight: 700;
+  color: #0e68b0;
+  cursor: pointer;
+}
+
+.btn-edit {
+  border-radius: 50%;
+  font-size: 18px;
+  padding-top: 2px;
+}
+
+.header-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 18px;
+}
+
+.header-icons button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.notification {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: red;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  color: white;
+  line-height: 16px;
+  text-align: center;
+}
+
+/* Main Content Layout */
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+/* Left Side */
+.left-side {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ccc;
+  background-color: #f3f9ff;
+}
+
+.channel-select {
+  display: flex;
+  gap: 10px;
+  padding: 8px 15px;
+  align-items: center;
+}
+
+.channel-select select {
+  flex-grow: 1;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.icon-user {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.bill-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 60px 40px 90px 90px;
+  padding: 8px 15px;
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  background: #ffffff;
+}
+
+.bill-empty {
+  flex-grow: 1;
+  text-align: center;
+  color: #7b7b7b;
+  margin-top: 60px;
+}
+
+.bill-empty div {
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.bill-empty small {
+  font-style: italic;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.pos-logo {
+  margin-top: 40px;
+  max-width: 200px;
+  filter: drop-shadow(2px 2px 2px #ccc);
+}
+
+.bottom-panel {
+  display: flex;
+  gap: 10px;
+  padding: 8px 15px;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  background: #ffffff;
+}
+
+.bottom-panel select {
+  flex: 0 0 150px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.btn-note, .btn-book-table {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.datetime {
+  min-width: 130px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Customer Search & Summary */
+.customer-search {
+  display: flex;
+}
+
+.customer-search input {
+  flex-grow: 1;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+}
+
+.btn-add {
+  background-color: #ca218e;
+  border: none;
+  width: 30px;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.summary {
+  display: flex;
+  gap: 24px;
+  padding: 8px 15px;
+  background: #fff;
+  align-items: center;
+  height: 64px;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+.summary .total {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.summary .total .number {
+  color: red;
+  font-size: 16px;
+}
+
+.summary .discount {
+  flex-grow: 1;
+  font-weight: normal;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* Actions Buttons */
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px 15px 20px;
+}
+
+.actions button {
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 3px;
+  color: white;
+}
+
+.btn-blue {
+  background-color: #1a75bf;
+}
+
+.btn-yellow {
+  background-color: #ffcb00;
+  color: #333;
+}
+
+.btn-red {
+  background-color: #dd4c49;
+}
+
+/* Right Side */
+.right-side {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  background-color: #557c8e;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: center;
+  border-right: 1px solid #9ca6af;
+  background: #7895a4;
+}
+
+.tab.active {
+  background: #376482;
+  font-weight: 700;
+}
+
+.info-tip {
+  font-size: 12px;
+  color: #2375a7;
+  background: #eff7fd;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tables {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 12px;
+  background: #e3e8ed;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.table-btn {
+  width: 80px;
+  height: 60px;
+  background-color: #7f7f7f;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.table-btn.active-table {
+  background-color: #2b52a3;
+}
+
+/* Active table 'MANG VỀ' style */
+.table-btn.active-table {
+  background-color: #23447a;
+}
+
+/* Scroll fix for tables section */
+.tables::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tables::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
