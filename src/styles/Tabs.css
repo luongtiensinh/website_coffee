@@ -1,0 +1,22 @@
+/* Tabs chuyển đổi */
+.tabs {
+  display: flex;
+  background-color: #557c8e;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: center;
+  border-right: 1px solid #9ca6af;
+  background: #7895a4;
+}
+
+.tab.active {
+  background: #376482;
+  font-weight: 700;
+}
