@@ -1,0 +1,45 @@
+
+.demo-container {
+  padding: 20px;
+  font-family: sans-serif;
+  max-width: 500px;
+  justify-content: center;
+  
+}
+
+.no-data {
+  padding: 20px;
+  color: red;
+  font-style: italic;
+}
+
+.file-section {
+  margin-top: 15px;
+}
+
+.uploaded-img {
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.file-preview {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: pre-wrap;
+}
+
+.export-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: #1a75bf;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.export-btn:hover {
+  background: #155a91;
+}

@@ -1,18 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Login.css"; // import file css
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // hook để điều hướng
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Đăng nhập:", { username, password });
 
-    // TODO: gọi API kiểm tra tài khoản ở đây
-    if (username === "admin" && password === "123") {
-      navigate("/home");  // điều hướng sang Home
+    // Kiểm tra tài khoản từ localStorage
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser && storedUser.username === username && storedUser.password === password) {
+      // navigate("/demo"); // điều hướng sang trang demo
+      navigate("/Home")
     } else {
       alert("Sai tài khoản hoặc mật khẩu!");
     }

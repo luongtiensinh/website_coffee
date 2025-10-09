@@ -6,11 +6,42 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    const uploadedFile = e.target.files[0];
+    if (uploadedFile) {
+      setFile(uploadedFile);
+
+      // Đọc file để lưu vào localStorage
+      const reader = new FileReader();
+      reader.onload = () => {
+        localStorage.setItem("userFile", reader.result); // Lưu file (CSV/ảnh) dưới dạng base64
+      };
+
+      if (uploadedFile.type.includes("image")) {
+        reader.readAsDataURL(uploadedFile); // nếu là ảnh -> base64
+      } else {
+        reader.readAsText(uploadedFile); // nếu là csv/txt -> text
+      }
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Đăng ký:", { username, email, password });
-    // TODO: gọi API backend để tạo tài khoản
+
+    const userData = {
+      username,
+      email,
+      password,
+      fileName: file ? file.name : null,
+    };
+
+    // Lưu thông tin đăng ký vào localStorage
+    localStorage.setItem("user", JSON.stringify(userData));
+
+    console.log("Đăng ký:", userData);
+    alert("Đăng ký thành công!");
   };
 
   return (
@@ -41,6 +72,12 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
             required
             className="register-input"
+          />
+          <input
+            type="file"
+            onChange={handleFileChange}
+            className="register-input"
+            required
           />
           <button type="submit" className="register-button">Đăng ký</button>
         </form>
