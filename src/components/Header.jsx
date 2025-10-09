@@ -26,7 +26,7 @@ const Header = ({ searchMenu, setSearchMenu, onExit, onCloudClick }) => {
           ☁️<span className="notification">0</span>
         </button>
         <button>📋</button>
-        <button>⏻</button>
+        <button>⏻ </button>
       </div>
     </div>
   );

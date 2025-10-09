@@ -15,8 +15,8 @@ function Login() {
     // Kiểm tra tài khoản từ localStorage
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser && storedUser.username === username && storedUser.password === password) {
-      // navigate("/demo"); // điều hướng sang trang demo
-      navigate("/Home")
+      navigate("/demo"); // điều hướng sang trang demo
+      // navigate("/Home")
     } else {
       alert("Sai tài khoản hoặc mật khẩu!");
     }

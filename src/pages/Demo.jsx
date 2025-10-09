@@ -35,11 +35,14 @@ function Demo() {
 
   return (
     <div className="demo-container">
+      <img src="https://navigates.vn/wp-content/uploads/2023/06/logo-dai-hoc-kien-truc-da-nang.jpg" alt="Logo DAU" className="logo" />
+
       <h2>Thông tin người dùng</h2>
       <p><b>Tên đăng nhập:</b> {user.username}</p>
       <p><b>Email:</b> {user.email}</p>
       <p><b>Mật khẩu:</b> {user.password}</p>
       <p><b>Tên file:</b> {user.fileName}</p>
+      <p><b>Thời gian đăng ký : </b>{user.registerTime}</p>
 
       {fileContent && (
         <div className="file-section">

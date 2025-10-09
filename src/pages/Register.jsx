@@ -35,6 +35,7 @@ function Register() {
       email,
       password,
       fileName: file ? file.name : null,
+      registerTime: new Date().toLocaleString(),//lưu thoi gian dăng kí 
     };
 
     // Lưu thông tin đăng ký vào localStorage
