@@ -17,11 +17,7 @@ const Bill = () => {
           Sau khi [F1] tìm thực đơn và [Enter] để chọn, bạn có thể đi chuyển
           nhanh xuống vị trí nhập số lượng bằng cách [Enter] thêm một lần nữa.
         </small>
-        <img
-          src="https://pos365.vn/images/logo-pos365-home.png"
-          alt="POS365 Logo"
-          className="pos-logo"
-        />
+        
       </div>
     </>
   );
