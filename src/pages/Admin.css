@@ -1,0 +1,87 @@
+:root{
+  --blue:#2b31e6;
+  --soft-blue:#2e4cff;
+}
+
+.admin-root{
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f5f5f7;
+  min-height:100vh;
+}
+
+.admin-header .admin-topbar{
+  background: linear-gradient(90deg,var(--blue),#2e2ecb);
+  padding:12px 20px;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.nav-buttons{display:flex;gap:8px}
+.nav-btn{background:transparent;border:none;color:white;padding:8px 14px;border-radius:6px;cursor:pointer}
+.nav-btn.active{background:rgba(255,255,255,0.12);box-shadow:0 0 0 3px rgba(0,0,0,0.12) inset}
+
+.header-icons{display:flex;gap:12px;align-items:center}
+.circle{width:28px;height:28px;border-radius:50%;background:#e6e6e6}
+.icon.small{width:22px;height:22px}
+
+.admin-main{padding:20px 24px}
+.metrics-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:18px;
+}
+.metric-card{
+  background:white;border:3px solid #ddd;padding:18px;display:flex;align-items:center;gap:12px;border-radius:4px;
+}
+.metric-icon{width:44px;height:44px;border-radius:50%;background:#eee}
+.metric-label{font-size:14px;color:#333}
+
+.chart-area{background:transparent}
+.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.small-blue{background:#1e63ff;color:white;border:none;padding:6px 10px;border-radius:4px}
+.chart-box{background:white;border:3px solid #8b8b8b;height:360px;border-radius:4px}
+
+@media (max-width:900px){
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Report view styles */
+.report-container{padding:24px 12px}
+.report-card{max-width:640px;margin:0 auto;background:white;padding:28px;border-radius:2px}
+.report-card h2{text-align:center;margin:0 0 8px}
+.report-time{text-align:center;color:#333;margin-bottom:12px}
+.report-table-wrap{padding:12px}
+.report-table{width:100%;border-collapse:collapse;border:3px solid #8b8b8b}
+.report-table th,.report-table td{border:1px solid #999;padding:8px;font-size:13px}
+.report-table thead th{background:#efefef}
+.report-table td.right{text-align:right;padding-right:12px}
+.report-table tr.spacer td{border:none;height:18px}
+.report-table tr.total td{font-weight:700}
+
+.report-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:18px auto 0;padding:18px;background:#f4eaea}
+.report-footer .btn{padding:12px 18px;border-radius:6px;border:3px solid #222;cursor:pointer}
+.btn-red{background:#f44336;color:white}
+.btn-white{background:white}
+.btn-yellow{background:#ffea3d}
+.footer-controls{display:flex;gap:18px;align-items:center}
+
+/* Finance view styles */
+.finance-root{display:flex;gap:18px;padding:18px}
+.finance-sidebar{width:220px;background:#eee;padding:16px;border-radius:4px}
+.finance-sidebar h4{margin:4px 0 12px}
+.filter-list{display:flex;flex-direction:column;gap:12px}
+.filter-btn{padding:10px;background:white;border:1px solid #ccc;border-radius:4px;cursor:pointer}
+.finance-content{flex:1}
+.summary-row{display:flex;gap:18px;padding:12px}
+.summary-card{flex:1;background:#36a3ff;color:white;padding:18px;border-radius:6px;text-align:center;font-weight:600}
+.finance-body{margin-top:18px;background:white;min-height:320px;border:2px solid #ddd;border-radius:6px}
+
+@media (max-width:900px){
+  .finance-root{flex-direction:column}
+  .finance-sidebar{width:100%}
+  .summary-row{flex-direction:row;flex-wrap:wrap}
+  .summary-card{flex:1 1 48%}
+}
