@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./Admin.css";
+import "../styles/Admin.css";
 
-import Header from "./admin/Header";
-import Metrics from "./admin/Metrics";
-import ChartArea from "./admin/ChartArea";
-import ReportView from "./admin/ReportView";
-import ReportFooter from "./admin/ReportFooter";
-import Finance from "./admin/Finance";
+import Header from "../components/admin/Header";
+import Metrics from "../components/admin/Metrics";
+import ChartArea from "../components/admin/ChartArea";
+import ReportView from "../components/admin/ReportView";
+import ReportFooter from "../components/admin/ReportFooter";
+import Finance from "../components/admin/Finance";
 
 export default function Admin() {
   const [tab, setTab] = useState('overview');

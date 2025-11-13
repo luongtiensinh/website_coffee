@@ -1,49 +1,86 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Register.css";
+import "../styles/Register.css";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
+  const [fileData, setFileData] = useState(""); // lưu nội dung file (base64 hoặc text)
 
   const handleFileChange = (e) => {
     const uploadedFile = e.target.files[0];
     if (uploadedFile) {
       setFile(uploadedFile);
 
-      // Đọc file để lưu vào localStorage
       const reader = new FileReader();
       reader.onload = () => {
-        localStorage.setItem("userFile", reader.result); // Lưu file (CSV/ảnh) dưới dạng base64
+        setFileData(reader.result); // lưu nội dung file tạm
       };
 
       if (uploadedFile.type.includes("image")) {
-        reader.readAsDataURL(uploadedFile); // nếu là ảnh -> base64
+        reader.readAsDataURL(uploadedFile);
       } else {
-        reader.readAsText(uploadedFile); // nếu là csv/txt -> text
+        reader.readAsText(uploadedFile);
       }
     }
   };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userData = {
+    const newUser = {
       username,
       email,
       password,
       fileName: file ? file.name : null,
-      registerTime: new Date().toLocaleString(),//lưu thoi gian dăng kí 
+      registerTime: new Date().toISOString().slice(0, 19).replace("T", " "),
     };
 
-    // Lưu thông tin đăng ký vào localStorage
-    localStorage.setItem("user", JSON.stringify(userData));
+    try {
+      const res = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      });
 
-    console.log("Đăng ký:", userData);
-    alert("Đăng ký thành công!");
+      const message = await res.text();
+      alert(message);
+    } catch (err) {
+      console.error("Lỗi khi gửi dữ liệu:", err);
+      alert("Không thể kết nối đến server.");
+    }
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const newUser = {
+  //     username,
+  //     email,
+  //     password,
+  //     fileName: file ? file.name : null,
+  //     registerTime: new Date().toISOString().slice(0, 19).replace("T", " "),
+  //   };
+
+  //   try {
+  //     const res = await fetch("http://localhost:5000/register", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(newUser),
+  //     });
+
+  //     const message = await res.text();
+  //     alert(message);
+  //   } catch (err) {
+  //     console.error("Lỗi khi gửi dữ liệu:", err);
+  //     alert("Không thể kết nối đến server.");
+  //   }
+  // };
 
   return (
     <div className="register-container">
@@ -80,7 +117,9 @@ function Register() {
             className="register-input"
             required
           />
-          <button type="submit" className="register-button">Đăng ký</button>
+          <button type="submit" className="register-button">
+            Đăng ký
+          </button>
         </form>
         <p className="register-footer">
           Đã có tài khoản? <Link to="/login">Đăng nhập</Link>

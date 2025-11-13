@@ -1,32 +1,38 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./Login.css"; // import file css
+import "../styles/Login.css"; // import file css
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // hook để điều hướng
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Đăng nhập:", { username, password });
 
-    // Kiểm tra tài khoản từ localStorage
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser && storedUser.username === username && storedUser.password === password) {
-      navigate("/demo"); // điều hướng sang trang demo
-      // navigate("/Home")
-    } else {
-      alert("Sai tài khoản hoặc mật khẩu!");
+    try {
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        navigate("/demo"); // điều hướng sang trang demo
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error("Lỗi khi đăng nhập:", err);
+      alert("Không thể kết nối đến server.");
     }
   };
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("Đăng nhập:", { username, password });
-  //   // TODO: gọi API backend để xác thực
-  // };
-
   return (
     <div className="login-container">
       <div className="login-box">

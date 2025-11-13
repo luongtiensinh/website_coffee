@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /*background: linear-gradient(135deg, #2575fc, #6a11cb);*/
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -11,7 +10,7 @@
   background: wheat;
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   width: 350px;
   text-align: center;
   animation: fadeIn 0.6s ease;
@@ -41,7 +40,7 @@
 
 .register-input:focus {
   border-color: #6a11cb;
-  box-shadow: 0 0 6px rgba(106,17,203,0.4);
+  box-shadow: 0 0 6px rgba(106, 17, 203, 0.4);
 }
 
 .register-button {
@@ -76,6 +75,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
